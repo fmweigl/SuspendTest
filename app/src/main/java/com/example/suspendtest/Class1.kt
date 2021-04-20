@@ -13,7 +13,9 @@ class Class1(
     fun start() {
 
         coroutineScope.launch {
-            val string = interface2.execute() // interface1.execute { interface2.execute() }
+            val string = interface1.execute {
+                interface2.execute()
+            }
             interface3.execute(string)
         }
 
